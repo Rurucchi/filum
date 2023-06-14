@@ -36,6 +36,12 @@ int compareString(string *string1, string *string2) {
   }
 };
 
-// int slice(string *string, int start, int end = 0) {
+// todo : finish this tomorrow
 
+// int slice(string *string, int start, int end = 0) {
+//   if (end != 0) {
+//     for (int i = start; i < end; i++) {
+//     }
+//     string res = String()
+//   }
 // }

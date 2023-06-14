@@ -11,8 +11,12 @@ int main() {
   int res2 = compareString(&test2, &test3);
   int res3 = compareString(&test, &test4);
 
+  // string stuff
+  printf("---------------- String stuff\n");
   printf("%d \n", test.length);
-  printf("string 1 and 2 %d \n", res);
+  printf("---------------- compareString\n");
+  printf("\nstring 1 and 2 %d \n", res);
   printf("string 2 and 3 %d \n", res2);
   printf("string 1 and 4 %d \n", res3);
+  printf("\n\n---------------- String stuff\n\n");
 }
