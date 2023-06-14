@@ -35,3 +35,7 @@ int compareString(string *string1, string *string2) {
     return (1);
   }
 };
+
+// int slice(string *string, int start, int end = 0) {
+
+// }
