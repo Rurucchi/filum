@@ -60,3 +60,12 @@ string slice(string *string, int start, int end) {
     };
   }
 };
+
+string replace(string *string, char arg[1]) {
+  for (int i = 0; i < string->length; i++) {
+    if (string->value[i] == *arg) {
+      string->value[i] = *arg;
+      return *string;
+    }
+  }
+}
