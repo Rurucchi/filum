@@ -8,5 +8,5 @@ if exist ../build (
   cd build
 )
 
-cl /nologo /Zi /EHsc "..\test.c"
+cl /nologo /Zi /EHsc "..\test.c" /link 
 cd ../script

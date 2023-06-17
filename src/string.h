@@ -23,6 +23,8 @@ string String(char *content) {
   return newStr;
 }
 
+// methods
+
 int compareString(string *string1, string *string2) {
   if (string1->length != string2->length) {
     return (0);
@@ -36,12 +38,25 @@ int compareString(string *string1, string *string2) {
   }
 };
 
-// todo : finish this tomorrow
-
-// int slice(string *string, int start, int end = 0) {
-//   if (end != 0) {
-//     for (int i = start; i < end; i++) {
-//     }
-//     string res = String()
-//   }
-// }
+string slice(string *string, int start, int end) {
+  // limit length
+  if (string->length > 255) {
+    return String("");
+  }
+  //
+  else {
+    if (end != 0) {
+      char res[255];
+      int resIndex = 0;
+      for (int i = start; i < end; i++) {
+        res[resIndex] = string->value[i];
+        resIndex++;
+      }
+      res[resIndex++] = '\0';
+      struct string result = String(res);
+      return result;
+    } else {
+      return String("");
+    };
+  }
+};
