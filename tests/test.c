@@ -25,4 +25,32 @@ int main() {
   printf("\n\n---------------- Slicing strings\n\n");
   printf("%s\n", slice1.value);
   printf("%s\n", test.value);
+
+  // replacing
+
+  replace(&test2, "t", "a");
+
+  printf("\n\n---------------- Replcing strings\n\n");
+  printf("%s\n", test2.value);
+
+  replaceAll(&test3, "t", "i");
+
+  printf("\n\n---------------- ReplcingAll strings\n\n");
+  printf("%s\n", test3.value);
+
+  // upper case
+
+  string upper = String("uppEr a z 0123");
+  toUpperCase(&upper);
+
+  printf("\n\n---------------- toOppercCase strings\n\n");
+  printf("%s\n", upper.value);
+
+  // lower case
+
+  string lower = String("LOwEr A Z 0123");
+  toLowerCase(&lower);
+
+  printf("\n\n---------------- toOppercCase strings\n\n");
+  printf("%s\n", lower.value);
 }

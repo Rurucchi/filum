@@ -61,11 +61,45 @@ string slice(string *string, int start, int end) {
   }
 };
 
-string replace(string *string, char arg[1]) {
+string replace(string *string, char toReplace[1], char replaceValue[1]) {
   for (int i = 0; i < string->length; i++) {
-    if (string->value[i] == *arg) {
-      string->value[i] = *arg;
+    if (string->value[i] == *toReplace) {
+      string->value[i] = *replaceValue;
       return *string;
     }
   }
+  return *string;
 }
+
+string replaceAll(string *string, char toReplace[1], char replaceValue[1]) {
+  for (int i = 0; i < string->length; i++) {
+    if (string->value[i] == *toReplace) {
+      string->value[i] = *replaceValue;
+    }
+  }
+  return *string;
+}
+
+string toUpperCase(string *string) {
+  for (int i = 0; i < string->length; i++) {
+    if (string->value[i] >= 97 && string->value[i] <= 122) {
+      string->value[i] = string->value[i] - 32;
+    }
+  }
+  return *string;
+};
+
+string toLowerCase(string *string) {
+  for (int i = 0; i < string->length; i++) {
+    if (string->value[i] >= 65 && string->value[i] <= 90) {
+      string->value[i] = string->value[i] + 32;
+    }
+  }
+  return *string;
+};
+
+// to do : concat function
+
+// string concat(string *string1,string *string2) {
+
+// };
