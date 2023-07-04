@@ -20,11 +20,19 @@ int main() {
   printf("string 1 and 4 %d \n", res3);
 
   // slicing
-  string slice1 = slice(&test, 0, 2);
+  string source = String("test");
+
+  // testing stuff
+  string dest;
+  dest.length = 0;
+  char buffer[3];
+  dest.value = buffer;
+
+  slice(&dest, &source, 0, 3);
 
   printf("\n\n---------------- Slicing strings\n\n");
-  printf("%s\n", slice1.value);
-  printf("%s\n", test.value);
+  printf("%s\n", dest.value);
+  printf("%s\n", source.value);
 
   // replacing
 
@@ -35,7 +43,7 @@ int main() {
 
   replaceAll(&test3, "t", "i");
 
-  printf("\n\n---------------- ReplcingAll strings\n\n");
+  printf("\n\n---------------- Replcing All strings\n\n");
   printf("%s\n", test3.value);
 
   // upper case
@@ -51,6 +59,41 @@ int main() {
   string lower = String("LOwEr A Z 0123");
   toLowerCase(&lower);
 
-  printf("\n\n---------------- toOppercCase strings\n\n");
+  printf("\n\n---------------- toUppercCase strings\n\n");
   printf("%s\n", lower.value);
+
+  // concat
+
+  string hello = String("Hello ");
+  string world = String("World");
+
+  string dest2;
+  dest2.length = 10;
+  char buffer2[10];
+  dest2.value = buffer;
+  concat(&hello, &world, &dest2);
+
+  printf("\n---------------- concat strings\n\n");
+  printf("%s\n", dest2.value);
+
+  string pad = String("test");
+  string padDest;
+  padDest.length = 10;
+  char padbuffer[10];
+  padDest.value = padbuffer;
+
+  padStart(&padDest, &pad, "a");
+
+  printf("\n---------------- padStart strings\n\n");
+  printf("%s\n", padDest.value);
+
+  string padDest2;
+  padDest2.length = 10;
+  char padbuffer2[10];
+  padDest2.value = padbuffer2;
+
+  padEnd(&padDest2, &pad, "a");
+
+  printf("\n---------------- padEnd strings\n\n");
+  printf("%s\n", padDest2.value);
 }

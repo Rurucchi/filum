@@ -1,3 +1,4 @@
+// #include <stdio.h>
 
 // functions
 int getLength(char *content) {
@@ -38,28 +39,23 @@ int compareString(string *string1, string *string2) {
   }
 };
 
-string slice(string *string, int start, int end) {
-  // limit length
-  if (string->length > 255) {
-    return String("");
-  }
-  //
-  else {
-    if (end != 0) {
-      char res[255];
-      int resIndex = 0;
-      for (int i = start; i < end; i++) {
-        res[resIndex] = string->value[i];
-        resIndex++;
-      }
-      res[resIndex++] = '\0';
-      struct string result = String(res);
-      return result;
-    } else {
-      return String("");
-    };
-  }
-};
+//  -------deprecated
+
+// string slice(string *string, int start, int end) {
+//   if (end != 0) {
+//     char res[255];
+//     int resIndex = 0;
+//     for (int i = start; i < end; i++) {
+//       res[resIndex] = string->value[i];
+//       resIndex++;
+//     }
+//     res[resIndex++] = '\0';
+//     struct string result = String(res);
+//     return result;
+//   } else {
+//     return String("");
+//   };
+// };
 
 string replace(string *string, char toReplace[1], char replaceValue[1]) {
   for (int i = 0; i < string->length; i++) {
@@ -100,6 +96,58 @@ string toLowerCase(string *string) {
 
 // to do : concat function
 
-// string concat(string *string1,string *string2) {
+void concat(string *string1, string *string2, string *dest) {
+  int i = 0;
+  while (string1->value[i] != '\0') {
+    dest->value[i] = string1->value[i];
+    i++;
+  }
 
-// };
+  int j = 0;
+  while (string2->value[j] != '\0') {
+    dest->value[i] = string2->value[j];
+    i++;
+    j++;
+  }
+  dest->value[i] = '\0';
+};
+
+void slice(string *dest, string *source, int start, int end) {
+  if (start > end) {
+    return;
+  }
+  for (int i = 0; i < end - start; i++) {
+    dest->value[i] = source->value[i + start];
+  }
+}
+
+void padStart(string *dest, string *source, char padding[1]) {
+  int i = 0;
+  while (i < dest->length - source->length) {
+    dest->value[i] = *padding;
+    i++;
+  }
+  int j = 0;
+  while (source->value[j] != '\0') {
+    dest->value[i] = source->value[j];
+    j++;
+    i++;
+  }
+  dest->value[i] = '\0';
+}
+
+void padEnd(string *dest, string *source, char padding[1]) {
+  int i = 0;
+
+  while (source->value[i] != '\0') {
+    dest->value[i] = source->value[i];
+    i++;
+  }
+
+  while (i < dest->length) {
+    dest->value[i] = *padding;
+    i++;
+  }
+
+  dest->value[i] = '\0';
+}
